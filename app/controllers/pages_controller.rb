@@ -9,7 +9,9 @@ class PagesController < ApplicationController
   end
 
   def find
-  	@food = params["food"]
+  	@food = StillTasty.search(params["food"])
+  	# p @food
+  	render "pages/search_results.js.erb"
   end
 
 end
