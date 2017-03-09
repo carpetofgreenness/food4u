@@ -14,4 +14,10 @@ class PagesController < ApplicationController
   	render "pages/search_results.js.erb"
   end
 
+  def api_find
+    result = StillTasty.name_search(params["food"])
+
+    render json: { results: result }
+  end
+
 end

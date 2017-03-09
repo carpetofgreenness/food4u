@@ -21,6 +21,19 @@ class StillTasty
 
 	end
 
+	def self.name_search(food)
+
+		uri = URI("https://shelf-life-api.herokuapp.com/search?q=#{food}")
+
+		response = Net::HTTP.get(uri)
+
+		json = JSON.parse(response)
+
+		# result = json[0]["id"]
+
+
+	end
+
 end
 
 # p StillTasty.search("apple")
