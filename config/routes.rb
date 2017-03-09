@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :food
   resources :kitchen
   root "pages#home"
-  get "pages/home"
+  
+  get "/list", to: "pages#list"
+  get "/kitchen", to: "pages#kitchen"
+  
 end
