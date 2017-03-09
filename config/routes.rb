@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   root "pages#home"
   get "pages/home"
+
+  get 'search' => "pages#test_api"
+  get 'find' => "pages#find"
 end

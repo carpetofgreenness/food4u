@@ -2,7 +2,14 @@ require "stilltasty"
 class PagesController < ApplicationController
 
   def home
-  	@food = StillTasty.search("apple")
+  end
+
+  def test_api
+  	@food = StillTasty.search("cucumber")
+  end
+
+  def find
+  	@food = params["food"]
   end
 
 end

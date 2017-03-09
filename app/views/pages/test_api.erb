@@ -1,0 +1,19 @@
+<h1>hi</h1>
+<p><%=@food%></p>
+<p>food: <%=@food["name"]%></p>
+<p>storage method: <%=@food["methods"][0]["location"] %></p>
+<p>expiration: <%=@food["methods"][0]["expiration"] %></p>
+<p>tips:</p>
+<ul>
+	<%@food["tips"].each do |tip|%>
+		<li><%=tip%></li>
+	<%end%>
+</ul>
+
+<%= form_tag find_path, remote: true, :method => 'get' do %>
+	<%= search_field_tag 'food' %>
+
+	<%= submit_tag %>
+<% end %>
+
+<div class="results"></div>
