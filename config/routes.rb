@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :foods, :kitchens, :lists
+
+  resources :foods, :lists, :kitchens, only: [:create, :update, :destroy] 
+
   root "pages#home"
   get "pages/home"
 
