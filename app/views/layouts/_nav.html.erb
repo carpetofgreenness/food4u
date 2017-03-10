@@ -16,8 +16,8 @@
         <li id="navforuser">Logged in as <strong><%= current_user.first_name + " " + current_user.last_name %></strong></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">List</a></li>
-        <li><a href="#">Kitchen</a></li>
+        <li><%= link_to "List", lists_path %></li>
+        <li><%= link_to "Kitchen", kitchens_path %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
       </ul>
