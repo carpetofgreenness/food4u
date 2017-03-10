@@ -6,10 +6,10 @@ class FoodsController < ApplicationController
 		@food = Food.create(food_params)
 		if @food.save
 			flash[:notice] = "Your food was created successfully"
-			redirect_to :back
+			redirect_to "/list"
 		else
 			flash[:alert] = "There was a problem saving your food."
-			redirect_to :back
+			redirect_to "/list"
 		end
 	end
 
