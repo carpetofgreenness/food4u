@@ -5,6 +5,10 @@ class StillTasty
 
 	def self.search(food)
 
+		food = food.tr(" ", "&")
+
+		p food
+
 		uri = URI("https://shelf-life-api.herokuapp.com/search?q=#{food}")
 
 		response = Net::HTTP.get(uri)
@@ -22,6 +26,8 @@ class StillTasty
 	end
 
 	def self.name_search(food)
+
+		food = food.tr(" ", "&")
 
 		uri = URI("https://shelf-life-api.herokuapp.com/search?q=#{food}")
 

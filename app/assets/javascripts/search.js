@@ -15,7 +15,21 @@ $("document").ready(function(){
 					// console.log("success")
 					// console.log(data)
 					suggestions = data.results
-					console.log(suggestions)
+					// console.log(suggestions)
+					html_string = ""
+
+					for (var i = 0; i <= suggestions.length - 1; i++) {
+						html_string += "<a class='list-group-item' id='"+suggestions[i].name+"'>"+suggestions[i].name+"</a>"
+					}
+
+					console.log(html_string)
+
+					$("#suggestions").html(html_string)
+					
+					$(".list-group-item").click(function(event){
+						console.log(event.target)
+						$("#food").val(event.target.id)
+					})
 				},
 
 				error:function(data){
@@ -23,8 +37,9 @@ $("document").ready(function(){
 				}
 			});
 			
+
 		}
 
-
 	});
+
 })
