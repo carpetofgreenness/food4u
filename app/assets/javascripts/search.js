@@ -1,6 +1,6 @@
 $("document").ready(function(){
 
-	$("#food").keyup(function(){
+	$("#food_name").keyup(function(){
 		value = $(this).val();
 		suggestions = []
 
@@ -12,23 +12,23 @@ $("document").ready(function(){
 				dataType: "json", //need this, or jsonp
 
 				success: function(data) { //what to do when it is successful. do this every time
-					// console.log("success")
-					// console.log(data)
+
 					suggestions = data.results
-					// console.log(suggestions)
+					console.log(suggestions)
 					html_string = ""
 
 					for (var i = 0; i <= suggestions.length - 1; i++) {
-						html_string += "<a class='list-group-item' id='"+suggestions[i].name+"'>"+suggestions[i].name+"</a>"
+						html_string += "<a class='list-group-item' id='"+ i + "'>"+suggestions[i].name+"</a>"
 					}
 
-					console.log(html_string)
 
 					$("#suggestions").html(html_string)
 					
 					$(".list-group-item").click(function(event){
-						console.log(event.target)
-						$("#food").val(event.target.id)
+						$("#food_name").val(suggestions[event.target.id[0]].name)
+						document.getElementById("food_still_tasty_id").value = suggestions[event.target.id[0]].id;
+						$("#suggestions").html("")
+						$("form").submit()
 					})
 				},
 

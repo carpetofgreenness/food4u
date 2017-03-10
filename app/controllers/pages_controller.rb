@@ -5,11 +5,11 @@ class PagesController < ApplicationController
   end
 
   def test_api
-  	@food = StillTasty.search("cucumber")
+  	@food = Food.new
   end
 
   def find
-  	@food = StillTasty.search(params["food"])
+  	@food = Food.create(params[:food])
   	# p @food
   	render "pages/search_results.js.erb"
   end

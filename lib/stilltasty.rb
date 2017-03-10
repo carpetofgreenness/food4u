@@ -5,7 +5,7 @@ class StillTasty
 
 	def self.search(food)
 
-		food = food.tr(" ", "&")
+		food = food.tr(" ", "&").tr("—", "-")
 
 		p food
 

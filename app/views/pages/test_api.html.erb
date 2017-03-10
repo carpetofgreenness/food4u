@@ -1,0 +1,18 @@
+<!-- <%= form_tag find_path, remote: true, :method => 'get' do %>  -->
+	<!-- <%= search_field_tag 'food' %> -->
+
+	<!-- <%= hidden_field_tag 'stilltasty_id', '' %> -->
+
+	<!-- <%= submit_tag %> -->
+<!-- <% end %> -->
+
+<%= form_for @food do |f| %>
+	<%= f.search_field 'name' %>
+	<%= f.hidden_field 'still_tasty_id' %>
+<% end %>
+
+<ul class="list-group" id="suggestions">
+	
+</ul>
+
+<div class="results"></div>
