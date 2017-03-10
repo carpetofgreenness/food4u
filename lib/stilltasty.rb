@@ -40,6 +40,16 @@ class StillTasty
 
 	end
 
+	def self.guide_search(id_num)
+		
+		uri = URI("https://shelf-life-api.herokuapp.com/guides/#{id_num}")
+
+		response = Net::HTTP.get(uri)
+
+		json = JSON.parse(response)
+
+	end
+
 end
 
 # p StillTasty.search("apple")

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'search' => "pages#test_api"
   get 'find' => "pages#find"
   get '/api-find' => "pages#api_find"
+  get '/guide-find' => "pages#guide_find"
   
   get "/list", to: "pages#list"
   get "/kitchen", to: "pages#kitchen"

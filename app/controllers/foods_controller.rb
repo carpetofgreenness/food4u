@@ -1,6 +1,8 @@
 class FoodsController < ApplicationController
 
 	def create
+		
+	    food_params["shelf_life"] = food_params["shelf_life"].to_i
 		@food = Food.create(food_params)
 		if @food.save
 			flash[:notice] = "Your food was created successfully"

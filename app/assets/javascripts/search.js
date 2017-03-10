@@ -30,17 +30,37 @@ $("document").ready(function(){
 					
 					// when user clicks an option, add it to the form and submit
 					$(".list-group-item").click(function(event){
+
+
 						// fill in the visible input with the name of the suggestion
 						$("#food_name").val(suggestions[event.target.id[0]].name)
 
 						// fill in the hidden form with the still tasty id
-						document.getElementById("food_still_tasty_id").value = suggestions[event.target.id[0]].id;
+						food_id_num =  suggestions[event.target.id[0]].id
+						document.getElementById("food_still_tasty_id").value = food_id_num;
 						
 						//remove the suggestion list since we picked one!
 						$("#suggestions").html("")
 
-						//submit form
-						$("form").submit()
+						// make api call to find out the shelflife
+						$.ajax({
+							url: "/guide-find", // in pages_controller.rb
+							type: 'GET',
+							data: { food: food_id_num },
+							dataType: "json",
+
+							success: function(data) {
+								document.getElementById("food_shelf_life").value = data.results["methods"][0]["expirationTime"]
+								
+								// submit form
+								$("form").submit()
+
+							}, error:function(data){
+								alert("error")
+							}
+							
+						})
+						
 					})
 				},
 

@@ -20,4 +20,11 @@ class PagesController < ApplicationController
     render json: { results: result }
   end
 
+  def guide_find
+
+    result = StillTasty.guide_search(params["food"])
+
+    render json: { results: result }
+  end
+
 end
