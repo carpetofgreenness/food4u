@@ -53,7 +53,7 @@ $("document").ready(function(){
 								document.getElementById("food_shelf_life").value = data.results["methods"][0]["expirationTime"]
 								
 								// submit form
-								$("form").submit()
+								$("form")[0].submit()
 
 							}, error:function(data){
 								alert("error")

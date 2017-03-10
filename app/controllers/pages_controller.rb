@@ -4,6 +4,11 @@ class PagesController < ApplicationController
   def home
   end
 
+  def list
+    @foods = Food.all
+    @food = Food.new
+  end
+
   def test_api
   	@food = Food.new
   end
