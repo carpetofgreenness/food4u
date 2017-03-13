@@ -1,9 +1,10 @@
 class FoodsController < ApplicationController
 
 	def create
-		
+
 	    food_params["shelf_life"] = food_params["shelf_life"].to_i
 		@food = current_user.foods.create(food_params)
+
 		if @food.save
 			flash[:notice] = "Your food was created successfully"
 			redirect_to "/list"
@@ -11,6 +12,13 @@ class FoodsController < ApplicationController
 			flash[:alert] = "There was a problem saving your food."
 			redirect_to "/list"
 		end
+	end
+
+	def destroy
+		@food = Food.find(params[:id])
+		@food.destroy
+
+		redirect_to :back
 	end
 
 	def to_kitchen
