@@ -4,6 +4,8 @@
 	<% @foods.each do |food| %>
 		<li class="list-group-item">
 			<%= food.name %>
+			<%= link_to " | Go to Kitchen", move_to_kitchen_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the kitchen?"}%>
+
 		</li>
 	<% end %>
 </ul>
@@ -21,7 +23,7 @@
 
 <div class="results"></div>
 
-<%= button_to "Go to Kitchen",  "/kitchen" , :method => :get, class: "btn btn-default"%>
+<%= button_to "Go to Kitchen",  "/kitchen" , :method => :get, class: "btn btn-default" %>
 
 
 

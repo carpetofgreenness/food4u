@@ -9,11 +9,11 @@ class User < ApplicationRecord
 
 
 	def list
-		self.foods.where(purchased == false)
+		self.foods.where(purchased: false)
 	end
 
 	def kitchen
-		self.foods.where(purchased == true)
+		self.foods.where(purchased: true)
 	end
 
 end

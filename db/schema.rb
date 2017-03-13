@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170309192306) do
     t.integer  "shelf_life"
     t.boolean  "purchased"
     t.integer  "user_id"
+    t.datetime "purchased_at"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
