@@ -3,7 +3,14 @@
 
 
 <h1>Expires Today</h1>
-
+<ul class="list-group">
+	<% @foods.each do |food| %>
+		<li class="list-group-item">
+			<%= food.name %>
+			
+		</li>
+	<% end %>
+</ul>
 
 <h1>Expires Tomorrow</h1>
 

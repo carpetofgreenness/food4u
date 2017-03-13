@@ -4,6 +4,9 @@ class CreateFoods < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :still_tasty_id
       t.integer :shelf_life
+      t.boolean :purchased
+      t.integer :user_id
+      t.datetime :purchased_at
 
       t.timestamps
     end
