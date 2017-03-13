@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
 	def create
 		
 	    food_params["shelf_life"] = food_params["shelf_life"].to_i
-		@food = Food.create(food_params)
+		@food = current_user.foods.create(food_params)
 		if @food.save
 			flash[:notice] = "Your food was created successfully"
 			redirect_to "/list"
@@ -16,6 +16,6 @@ class FoodsController < ApplicationController
 	private
 
 	def food_params
-		params.require(:food).permit(:name, :still_tasty_id, :shelf_life)
+		params.require(:food).permit(:name, :still_tasty_id, :shelf_life, :purchased)
 	end
 end
