@@ -1,15 +1,26 @@
 
+<h1>My List</h1>
 
-<h1>This is the List View Page</h1>
+<ul class="list-group">
+	<% @foods.each do |food| %>
+		<li class="list-group-item">
+			<%= food.name %>
+		</li>
+	<% end %>
+</ul>
 
+<%= form_for @food do |f| %>
+	<%= f.search_field 'name' %>
+	<%= f.hidden_field 'still_tasty_id' %>
+	<%= f.hidden_field 'shelf_life' %>
+<% end %>
 
+<ul class="list-group" id="suggestions">
+	
+</ul>
 
-<%= form.field_container :food , :include_blank => "Please Select" %>
+<div class="results"></div>
 
-<p>Purchase 3</p>
-<p>Purchase 4</p>
-<p>Purchase 5</p>
-<p>Purchase 6</p>
 
 <%= button_to "Go to Kitchen Page",  "/kitchen" , :method => :get, class: "btn btn-default"%>
 
