@@ -3,7 +3,7 @@
 <ul class="list-group">
 	<% @foods.each do |food| %>
 		<li class="list-group-item">
-			<%= food.name %>
+			<%= food.name %><%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>
 		</li>
 	<% end %>
 </ul>
