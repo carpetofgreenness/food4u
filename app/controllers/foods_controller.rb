@@ -1,9 +1,10 @@
 class FoodsController < ApplicationController
 
 	def create
-		
-		food_params["shelf_life"] = food_params["shelf_life"].to_i
-		@food = Food.create(food_params)
+
+	    food_params["shelf_life"] = food_params["shelf_life"].to_i
+		@food = current_user.foods.create(food_params)
+
 		if @food.save
 			flash[:notice] = "Your food was created successfully"
 			redirect_to "/list"
@@ -20,9 +21,16 @@ class FoodsController < ApplicationController
 		redirect_to :back
 	end
 
+	def to_kitchen
+    	food = Food.find(params[:id])
+    	food.update_attributes(purchased: true, purchased_at: Time.now)
+
+    	redirect_to "/list"
+  	end
+
 	private
 
 	def food_params
-		params.require(:food).permit(:name, :still_tasty_id, :shelf_life)
+		params.require(:food).permit(:name, :still_tasty_id, :shelf_life, :purchased)
 	end
 end
