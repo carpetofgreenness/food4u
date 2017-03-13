@@ -28,6 +28,13 @@ class FoodsController < ApplicationController
     	redirect_to "/list"
   	end
 
+  	def to_list
+  		food = Food.find(params[:id])
+    	food.update_attributes(purchased: false, purchased_at: Time.now)
+
+    	redirect_to "/kitchen"
+  	end
+
 	private
 
 	def food_params

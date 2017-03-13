@@ -5,10 +5,13 @@
 <h1>Expires Today</h1>
 <ul class="list-group">
 	<% @foods.each do |food| %>
-		<li class="list-group-item">
-			<%= food.name %>
-			
-		</li>
+	<li class="list-group-item">
+		<%= food.name %>
+		<%= food.shelf_life %> |
+		<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
+		<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+		
+	</li>
 	<% end %>
 </ul>
 
