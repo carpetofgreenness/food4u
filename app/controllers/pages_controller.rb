@@ -5,7 +5,12 @@ class PagesController < ApplicationController
   end
 
   def list
-    @foods = Food.all
+    @foods = current_user.list
+    @food = Food.new
+  end
+
+  def kitchen
+    @foods = current_user.kitchen
     @food = Food.new
   end
 
