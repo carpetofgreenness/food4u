@@ -6,8 +6,9 @@
 			<%= food.name %> |
 			<%= food.shelf_life %> |
       <%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-			<%= link_to " Go to Kitchen", move_to_kitchen_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the kitchen?"}%>
+			<%= link_to " Move to Kitchen", move_to_kitchen_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the kitchen?"}%>
 		</li>
+
 	<% end %>
 </ul>
 

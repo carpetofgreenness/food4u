@@ -1,6 +1,5 @@
 class KitchensController < ApplicationController
 	def index
-    	@kitchens = Kitchen.all
   	end
 
   	def show
@@ -19,3 +18,5 @@ end
 
 		redirect_to root_path
 	end
+
+
