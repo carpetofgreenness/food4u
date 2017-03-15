@@ -50,7 +50,7 @@ $("document").ready(function(){
 							dataType: "json",
 
 							success: function(data) {
-								document.getElementById("food_shelf_life").value = data.results["methods"][0]["expirationTime"]
+								document.getElementById("new_food_shelf_life").value = data.results["methods"][0]["expirationTime"]
 								
 
 								// submit form
