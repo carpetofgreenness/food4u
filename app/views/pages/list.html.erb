@@ -5,10 +5,10 @@
 		<li class="list-group-item">
 			<%= form_for move_to_kitchen_path(food.id) do |f| %>
 				<%= food.name %> |
-	      		<!-- <%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> | -->
+	      		<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
 	      		<%= f.label :shelf_life %>
 				<%= f.number_field :shelf_life, value: food.shelf_life_days %>
-
+				days
 				<%= f.submit "Add to kitchen" %>
 			<% end %>
 		</li>
