@@ -1,23 +1,5 @@
 <h1>My List</h1>
 
-<!-- current -->
-<!-- <ul class="list-group">
-	<% @foods.each do |food| %>
-		<li class="list-group-item">
-			<%= form_for food, url:move_to_kitchen_path(food.id), method: :post do |f| %>
-				<%= food.name %> |
-	      		<%= link_to food, method: :delete do %>
-	      			<i class='fa fa-trash-o'></i>
-	      		<% end %> |
-	      		<%= f.label :shelf_life %>
-				<%= f.number_field :shelf_life, value: food.shelf_life ? food.shelf_life_days : 7 %>
-				days
-				<%= f.submit "Add to kitchen" %>
-			<% end %>
-		</li>
-	<% end %>
-</ul> -->
-
 <!-- new idea -->
 <%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
 	<ul class="list-group">
@@ -34,6 +16,8 @@
 			</li>
 		<% end %>
 	</ul>
+	<%= submit_tag "To Kitchen", class: "btn btn-primary" %>
+	<br><br>
 
 <!-- search  -->
 	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
@@ -43,9 +27,7 @@
 		<%= f.hidden_field 'purchased', value: false %>
 	<% end %>
 
-	<br>
 
-	<%= submit_tag "To Kitchen", class: "btn btn-primary" %>
 <% end %>
 <ul class="list-group" id="suggestions">
 	
