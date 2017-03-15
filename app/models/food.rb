@@ -7,7 +7,7 @@ class Food < ApplicationRecord
 	
 	def expiration_date
 		if purchased
-			self.purchased_at + self.shelf_life_days
+			self.purchased_at + self.shelf_life_days.days
 		end
 	end
 end

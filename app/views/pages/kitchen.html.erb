@@ -7,7 +7,9 @@
 	<% @foods.each do |food| %>
 	<li class="list-group-item">
 		<%= food.name %>
-		<%= food.shelf_life_days %> |
+		| Shelf Life <%= food.shelf_life_days %> |
+		Added on <%= food.purchased_at %> | 
+		Expires on <%= food.expiration_date %> |
 		<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
 		<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
 		

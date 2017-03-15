@@ -37,7 +37,7 @@ class FoodsController < ApplicationController
   		food_arr.each.with_index do |food,i|
   			sl = params["shelf_life"][i].to_i*60*60*24
   			food.update_attributes(shelf_life: sl)
-  			if params["add"].include? food.id.to_s
+  			if params["add"] && (params["add"].include? food.id.to_s)
 	  			food.update_attributes(purchased: true, purchased_at: Time.now)
 	  			p "added the food " + food.name + "to kitchen"
 	  		end
