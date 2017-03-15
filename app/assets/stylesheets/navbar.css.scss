@@ -1,0 +1,29 @@
+#navforuser {
+	margin-top: 15px;
+	margin-left: 30px;
+	font-family: 'Lato', sans-serif;
+};
+
+.navbar.navbar-default {
+	background: #02C8A7;
+	height: 60px;
+	padding: 3px 0;
+	height: 60px;
+	border-bottom: 1px solid #e5e5e5;
+	box-shadow: 0 4px 4px #e5e5e5;
+	color: #fff;
+	font-family: 'Lato', sans-serif;
+};
+
+.backhome {
+	color: #fff;
+	padding: 0;
+	margin: 2px auto;
+	display: inline-block;
+	font-size: 30px;
+	letter-spacing: 0.5px;
+};
+
+.navbar-default .navbar-nav > li > a {
+	color: white!important;
+};

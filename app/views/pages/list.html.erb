@@ -1,38 +1,42 @@
 
+<div class="wrapper">
+
 <h1>My List</h1>
 
-<ul class="list-group">
-	<% @foods.each do |food| %>
-		<li class="list-group-item">
-			<%= form_for food, url:move_to_kitchen_path(food.id), method: :post do |f| %>
+<!-- new idea -->
+<%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
+	<ul class="list-group">
+		<% @foods.each do |food| %>
+			<li class="list-group-item">
+				<%= check_box_tag 'add[]', food.id %>
 				<%= food.name %> |
 	      		<%= link_to food, method: :delete do %>
 	      			<i class='fa fa-trash-o'></i>
 	      		<% end %> |
-	      		<%= f.label :shelf_life %>
-				<%= f.number_field :shelf_life, value: food.shelf_life_days %>
+	      		<label for="shelf_life">Shelf Life</label>
+				<%= number_field_tag "shelf_life[]", food.shelf_life ? food.shelf_life_days : 7 %>
 				days
-				<%= f.submit "Add to kitchen" %>
-			<% end %>
-		</li>
-	<% end %>
-</ul>
-
-<%= form_for @food, :html => { :id => "new_food" } do |f| %>
-	<%= f.search_field 'name' %>
-	<%= f.hidden_field 'still_tasty_id' %>
-	<%= f.hidden_field 'shelf_life' %>
-	<%= f.hidden_field 'purchased', value: false %>
+			</li>
+		<% end %>
+	</ul>
+	<%= submit_tag "To Kitchen", class: "btn btn-primary" %>
+	<br><br>
 <% end %>
+
+<!-- search  -->
+	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
+		<%= f.search_field 'name', class: "form-control", placeholder: "Search for food" %>
+		<%= f.hidden_field 'still_tasty_id' %>
+		<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
+		<%= f.hidden_field 'purchased', value: false %>
+	<% end %>
+
 
 <ul class="list-group" id="suggestions">
 	
 </ul>
 
-<div class="results"></div>
-
-
-<%= button_to "Go to Kitchen",  "/kitchen" , :method => :get, class: "btn btn-default" %>
+	<div class="results"></div>
 
 
 
