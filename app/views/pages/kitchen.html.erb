@@ -2,14 +2,21 @@
 <h1>This is the Kitchen View Page</h1>
 
 
-<h1>Expires Today</h1>
+<h1>Current Food</h1>
+
 <ul class="list-group">
 	<% @foods.each do |food| %>
 	<li class="list-group-item">
-		<%= food.name %>
-		<%= food.shelf_life_days %> |
-		<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-		<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+		
+		<%= food.name %> |
+		<%= food.shelf_life ? food.shelf_life_days : 7 %> |
+
+		<%= link_to food, method: :delete do %>
+			<i class='fa fa-trash-o'></i>
+		<% end %> |
+		
+		
+		<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item back to the list?"}%>
 		
 	</li>
 	<% end %>
