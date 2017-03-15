@@ -4,16 +4,23 @@
 <% if current_user.kitchen.length > 0 %>
 	<ul class="list-group">
 		<% if current_user.expires_today.length > 0 %>
-			<li class="list-group-item list-group-item-danger">
+			<li class="list-group-item list-group-item-danger row">
 				<h2>Expires Today</h2>
 			</li>
 			<% current_user.expires_today.each do |food| %>
-				<li class="list-group-item">
-					<%= food.name %>
-					| Expires <%= food.expires_from_now %> days from now |
-					<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-					<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
-					
+				<li class="list-group-item row">
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
 				</li>
 			<% end %>
 		<% end %>
@@ -23,42 +30,64 @@
 				<h3>Expires Tomorrow</h3>
 			</li>
 			<% current_user.expires_tomorrow.each do |food| %>
-				<li class="list-group-item">
-					<%= food.name %>
-					| Expires <%= food.expires_from_now %> days from now |
-					<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-					<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
-					
+				<li class="list-group-item row">
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
 				</li>
 			<% end %>
 		<% end %>
 
 		<% if current_user.expires_this_week.length > 0 %>
-			<li class="list-group-item list-group-item-info">
+			<li class="list-group-item list-group-item-info row">
 				<h3>Expires This Week</h3>
 			</li>
 			<% current_user.expires_this_week.each do |food| %>
 				<li class="list-group-item row">
-					<%= food.name %>
-					| Expires <%= food.expires_from_now %> days from now |
-					<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-					<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
-					
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
 				</li>
 			<% end %>
 		<% end %>
 
 		<% if current_user.expires_later.length > 0 %>
-			<li class="list-group-item list-group-item-success">
+			<li class="list-group-item list-group-item-success row">
 				<h2>Expires Later</h2>
 			</li>
 			<% current_user.expires_later.each do |food| %>
-				<li class="list-group-item">
-					<%= food.name %>
-					| Expires <%= food.expires_from_now %> days from now |
-					<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-					<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
-					
+				<li class="list-group-item row">
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
 				</li>
 			<% end %>
 		<% end %>
