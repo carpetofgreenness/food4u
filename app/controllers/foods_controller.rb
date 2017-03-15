@@ -22,10 +22,10 @@ class FoodsController < ApplicationController
 	end
 
 	def to_kitchen
-    	food = Food.find(params[:id])
-    	food.update_attributes(purchased: true, purchased_at: Time.now)
-
-    	redirect_to "/list"
+  		food = Food.find(params[:id])
+  		sl = params["food"]["shelf_life"].to_i*60*60*24
+  		food.update_attributes(purchased: true, purchased_at: Time.now, shelf_life: sl)
+  		redirect_to "/kitchen"
   	end
 
   	def to_list
@@ -34,6 +34,13 @@ class FoodsController < ApplicationController
 
     	redirect_to "/kitchen"
   	end
+
+  	# def update
+  	# 	food = Food.find(params[:id])
+  	# 	sl = params["food"]["shelf_life"].to_i*60*60*24
+  	# 	food.update_attributes(purchased: true, purchased_at: Time.now, shelf_life: sl)
+  	# 	redirect_to "/kitchen"
+  	# end
 
 	private
 

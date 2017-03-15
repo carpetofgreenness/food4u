@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Food4u</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Food4u</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  	<%= render "layouts/nav" %>
-  <div class="container-fluid">
+<body>
+ <%= render "layouts/nav" %>
+ <div class="container-fluid">
 
-<% if notice %>
+  <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
+  <% end %>
+  <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+  <% end %>
   
+  <div class="wrapper">
     <%= yield %>
   </div>
-  </body>
+</div>
+</body>
 </html>
