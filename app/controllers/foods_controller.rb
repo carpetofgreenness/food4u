@@ -45,7 +45,7 @@ class FoodsController < ApplicationController
   			p i
   		end
 
-  		redirect_to :back
+  		redirect_to "/kitchen"
   	end
 
   	def to_list

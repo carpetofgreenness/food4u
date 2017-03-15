@@ -34,24 +34,24 @@
 			</li>
 		<% end %>
 	</ul>
-	<%= submit_tag "Add to kitchen" %>
-<% end %>
 
 <!-- search  -->
-<%= form_for @food, :html => { :id => "new_food" } do |f| %>
-	<%= f.search_field 'name' %>
-	<%= f.hidden_field 'still_tasty_id' %>
-	<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
-	<%= f.hidden_field 'purchased', value: false %>
-<% end %>
+	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
+		<%= f.search_field 'name', class: "form-control", placeholder: "Search for food" %>
+		<%= f.hidden_field 'still_tasty_id' %>
+		<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
+		<%= f.hidden_field 'purchased', value: false %>
+	<% end %>
 
+	<br>
+
+	<%= submit_tag "To Kitchen", class: "btn btn-default" %>
+<% end %>
 <ul class="list-group" id="suggestions">
 	
 </ul>
 
 <div class="results"></div>
-
-<%= button_to "Go to Kitchen",  "/kitchen" , :method => :get, class: "btn btn-default" %>
 
 
 
