@@ -1,4 +1,5 @@
 class Food < ApplicationRecord
+
 	belongs_to :user
 
 	def shelf_life_days
