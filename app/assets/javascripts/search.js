@@ -54,7 +54,7 @@ $("document").ready(function(){
 								
 
 								// submit form
-								$("form")[1].submit()
+								$("#new_food").submit()
 
 							}, error:function(data){
 								alert("error")
