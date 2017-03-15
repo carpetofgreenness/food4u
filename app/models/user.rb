@@ -13,7 +13,8 @@ class User < ApplicationRecord
 	end
 
 	def kitchen
-		self.foods.where(purchased: true)
+		kitchen_unsorted self.foods.where(purchased: true)
+		kitchen_sorted = @records.sort_by &:created_at
 	end
 
 end
