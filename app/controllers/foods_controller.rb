@@ -28,6 +28,26 @@ class FoodsController < ApplicationController
   		redirect_to "/kitchen"
   	end
 
+  	def to_kitchen_new
+  		p "WHAT PARAMS DO WE GET"
+  		p params
+
+  		food_arr = current_user.list
+
+  		food_arr.each.with_index do |food,i|
+  			sl = params["shelf_life"][i].to_i*60*60*24
+  			food.update_attributes(shelf_life: sl)
+  			if params["add"].include? food.id.to_s
+	  			food.update_attributes(purchased: true, purchased_at: Time.now)
+	  			p "added the food " + food.name + "to kitchen"
+	  		end
+  			p food.name
+  			p i
+  		end
+
+  		redirect_to :back
+  	end
+
   	def to_list
   		food = Food.find(params[:id])
     	food.update_attributes(purchased: false, purchased_at: Time.now)

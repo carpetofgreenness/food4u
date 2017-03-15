@@ -1,6 +1,7 @@
 <h1>My List</h1>
 
-<ul class="list-group">
+<!-- current -->
+<!-- <ul class="list-group">
 	<% @foods.each do |food| %>
 		<li class="list-group-item">
 			<%= form_for food, url:move_to_kitchen_path(food.id), method: :post do |f| %>
@@ -15,8 +16,28 @@
 			<% end %>
 		</li>
 	<% end %>
-</ul>
+</ul> -->
 
+<!-- new idea -->
+<%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
+	<ul class="list-group">
+		<% @foods.each do |food| %>
+			<li class="list-group-item">
+				<%= check_box_tag 'add[]', food.id %>
+				<%= food.name %> |
+	      		<%= link_to food, method: :delete do %>
+	      			<i class='fa fa-trash-o'></i>
+	      		<% end %> |
+	      		<label for="shelf_life">Shelf Life</label>
+				<%= number_field_tag "shelf_life[]", food.shelf_life ? food.shelf_life_days : 7 %>
+				days
+			</li>
+		<% end %>
+	</ul>
+	<%= submit_tag "Add to kitchen" %>
+<% end %>
+
+<!-- search  -->
 <%= form_for @food, :html => { :id => "new_food" } do |f| %>
 	<%= f.search_field 'name' %>
 	<%= f.hidden_field 'still_tasty_id' %>
