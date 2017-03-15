@@ -18,4 +18,22 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
+ .btn-default {
+ 	box-shadow: 2px 2px 2px #e5e5e5;
+ 	border: 1px solid #e5e5e5;
+ 	border-radius: 4px;
+ 	padding: 7px 30px;
+ 	color: #fff;
+ 	background: #02C8A7;
+ 	font-family: 'Lato', sans-serif;
+ 	width: 175px;
+ };
+
+ .btn-default:hover {
+ 	background: #02C8A7;
+ 	color: #fff;
+ 	font-size: 15px;
+ };
+
+
 
