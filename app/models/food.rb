@@ -8,8 +8,14 @@ class Food < ApplicationRecord
 	
 	def expiration_date
 		if purchased
-			self.purchased_at + self.shelf_life_days
+			self.purchased_at + self.shelf_life_days.days
 		end
 	end
+
+	def expires_from_now
+		exact = (self.expiration_date - Time.now)/60/60/24
+		exact.round
+	end
+
 end
 

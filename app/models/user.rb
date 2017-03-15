@@ -13,8 +13,52 @@ class User < ApplicationRecord
 	end
 
 	def kitchen
-		kitchen_unsorted self.foods.where(purchased: true)
-		kitchen_sorted = @records.sort_by &:created_at
+		kitchen_unsorted = self.foods.where(purchased: true)
+		kitchen_sorted = kitchen_unsorted.sort_by {|food| food.expiration_date}
 	end
+
+	def expires_today
+		today = []
+		self.kitchen.each do |food|
+			if food.expires_from_now == 0
+				today << food
+			end
+		end
+
+		today
+	end
+
+	def expires_tomorrow
+		today = []
+		self.kitchen.each do |food|
+			if food.expires_from_now == 1
+				today << food
+			end
+		end
+
+		today
+	end
+
+	def expires_this_week
+		today = []
+		self.kitchen.each do |food|
+			if food.expires_from_now > 1 && food.expires_from_now < 8
+				today << food
+			end
+		end
+
+		today
+	end
+
+	def expires_later
+		today = []
+		self.kitchen.each do |food|
+			if food.expires_from_now > 8
+				today << food
+			end
+		end
+
+		today
+	end	
 
 end
