@@ -3,16 +3,22 @@
 <ul class="list-group">
 	<% @foods.each do |food| %>
 		<li class="list-group-item">
-			<%= food.name %> |
-			<%= food.shelf_life %> |
-      <%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-			<%= link_to " Move to Kitchen", move_to_kitchen_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the kitchen?"}%>
+			<%= form_for food, url:move_to_kitchen_path(food.id), method: :post do |f| %>
+				<%= food.name %> |
+	      		<%= link_to food, method: :delete do %>
+	      			<i class='fa fa-trash-o'></i>
+	      		<% end %> |
+	      		<%= f.label :shelf_life %>
+				<%= f.number_field :shelf_life, value: food.shelf_life_days %>
+				days
+				<%= f.submit "Add to kitchen" %>
+			<% end %>
 		</li>
 
 	<% end %>
 </ul>
 
-<%= form_for @food do |f| %>
+<%= form_for @food, :html => { :id => "new_food" } do |f| %>
 	<%= f.search_field 'name' %>
 	<%= f.hidden_field 'still_tasty_id' %>
 	<%= f.hidden_field 'shelf_life' %>
