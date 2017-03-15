@@ -34,15 +34,18 @@ class FoodsController < ApplicationController
 
   		food_arr = current_user.list
 
+  		# loop through the current user's list and make updates
   		food_arr.each.with_index do |food,i|
+
+  			# update shelf life in case it has been changed
   			sl = params["shelf_life"][i].to_i*60*60*24
   			food.update_attributes(shelf_life: sl)
+
+  			# if it was checked, add to kitchen
   			if params["add"] && (params["add"].include? food.id.to_s)
 	  			food.update_attributes(purchased: true, purchased_at: Time.now)
 	  			p "added the food " + food.name + "to kitchen"
 	  		end
-  			p food.name
-  			p i
   		end
 
   		redirect_to "/kitchen"
