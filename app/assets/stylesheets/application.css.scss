@@ -53,8 +53,8 @@
  };
 
  i {
+ 	margin-top: -7px;
  	margin-left: 15px;
- 	margin-top: 1px;
  	width: 35px;
  	text-align: center;
  	height: 35px;
@@ -79,4 +79,12 @@
  	color: #fff;
  	background-color: #02C8A7;
  	border-color: #02C8A7;
+ };
+
+ .col-sm-8 {
+ 	margin-top: 7px;
+ };
+
+ .col-xs-1 {
+ 	margin-top: 7px;
  };
