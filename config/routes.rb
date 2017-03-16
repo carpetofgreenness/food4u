@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'find' => "pages#find"
   get '/api-find' => "pages#api_find"
   get '/guide-find' => "pages#guide_find"
+
+  get '/data' => "pages#data"
   
   get "/list", to: "pages#list"
   get "/kitchen", to: "pages#kitchen"
