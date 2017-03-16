@@ -27,12 +27,11 @@
  	background: #02C8A7;
  	font-family: 'Lato', sans-serif;
  	width: 175px;
- };
-
- .btn-default:hover {
- 	background: #02C8A7;
- 	color: #fff;
- 	font-size: 15px;
+ 	&:hover {
+ 		background: #02C8A7;
+ 		color: #fff;
+ 		font-size: 15px;
+ 	}
  };
 
  .btn-primary {
@@ -71,9 +70,9 @@
  	}
  };
 
-.fa-trash-o:before {
-	font-size: 16px;
-};
+ .fa-trash-o:before {
+ 	font-size: 16px;
+ };
 
  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
  	z-index: 2;
