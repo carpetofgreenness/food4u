@@ -6,6 +6,8 @@ class CreateGhosts < ActiveRecord::Migration[5.0]
 	    t.integer  "shelf_life"
 	    t.boolean  "eaten"
 	    t.integer  "user_id"
+	    t.integer  "trashed"
+	    t.integer  "eaten"
 	    t.datetime "created_at",     null: false
 	    t.datetime "updated_at",     null: false
       t.timestamps

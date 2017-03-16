@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20170316172203) do
     t.string   "name"
     t.string   "still_tasty_id"
     t.integer  "shelf_life"
-    t.boolean  "eaten"
+    t.integer  "eaten"
     t.integer  "user_id"
+    t.integer  "trashed"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
