@@ -1,0 +1,20 @@
+<div class="modal fade" id=<%="myModal#{@food.id}"%>>
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<h3>Moving To List</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to move this item to the List?</p>
+			</div>
+			
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Keep in Kitchen</button>
+			<%= link_to "Move to List", move_to_list_path(@food), class: "btn btn-default", :method => :post, :remote => true%>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
