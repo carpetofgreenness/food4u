@@ -18,26 +18,31 @@
 			</div>
 		</li>
 		<% @foods.each do |food| %>
-		<li class="list-group-item row">
-			<div class="col-xs-1">
-				<%= check_box_tag 'add[]', food.id %>				
-			</div>
-			<div class="col-sm-8 col-xs-7">
-				<%= food.name %>
-			</div>
-			<div class="col-sm-2 col-xs-3">
-				<%= number_field_tag "shelf_life[]", food.shelf_life ? food.shelf_life_days : 7, min: 0, class: "form-control" %>
-			</div>
-			<div class="col-xs-1">
-				<%= link_to food, method: :delete do %>
-				<i class='fa fa-trash-o'></i>
-				<% end %>
-			</div>
-		</li>
+			<li class="list-group-item row">
+				<div class="col-xs-1">
+					<%= check_box_tag 'add[]', food.id %>				
+				</div>
+				<div class="col-sm-8 col-xs-7">
+					<%= food.name %>
+				</div>
+				<div class="col-sm-2 col-xs-3">
+					<%= number_field_tag "shelf_life[]", food.shelf_life ? food.shelf_life_days : 7, min: 0, class: "form-control" %>
+				</div>
+				<div class="col-xs-1">
+					<%= link_to food, method: :delete do %>
+					<i class='fa fa-trash-o'></i>
+					<% end %>
+				</div>
+			</li>
+			<% @food = food %>
+			<%= render partial: "modal_to_kitchen"%>
+	
 		<% end %>
 	</ul>
-	<%= submit_tag "To Kitchen >>", class: "btn btn-primary" %>
+	<br>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
 	<br><br>
+	
 	<% end %>
 
 	<!-- search  -->
