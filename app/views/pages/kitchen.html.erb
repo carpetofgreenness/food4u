@@ -3,20 +3,43 @@
 
 
 <h1>Expires Today</h1>
+
 <ul class="list-group">
 	<% @foods.each do |food| %>
 	<li class="list-group-item">
 		<%= food.name %>
 		<%= food.shelf_life_days %> |
 		<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-		<%= link_to " Go to list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Move to list
+		</button>
 	</li>
+	
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Moving To Kitchen</h3>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want to move this item to the Kitchen?</p>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Keep in Kitchen</button>
+					<%= link_to "Move to List", move_to_list_path(food.id), class: "btn btn-default", :method => :post, :remote => true%>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
 	<% end %>
 </ul>
+<h1>Expires later</h1>
 
-<h1>Expires Tomorrow</h1>
+<%= button_to "Go to List Page",  "/list" , :method => :get, class: "btn btn-default" %>
 
 
-<h1>Expires This Week</h1>
 
-<%= button_to "Go to List",  "/list" , :method => :get, class: "btn btn-default" %>
+
+

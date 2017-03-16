@@ -8,6 +8,7 @@ class KitchensController < ApplicationController
 
 	def create
     	@kitchen = Kitchen.new(params[:id])
+
     	redirect_to :back
 	end
 end

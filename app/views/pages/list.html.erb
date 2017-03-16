@@ -9,7 +9,7 @@
 	      			<i class='fa fa-trash-o'></i>
 	      		<% end %> |
 	      		<%= f.label :shelf_life %>
-				<%= f.number_field :shelf_life, value: food.shelf_life_days %>
+				<%= f.number_field :shelf_life, value: food.shelf_life ? food.shelf_life_days : 7 %>
 				days
 				<%= f.submit "Add to kitchen" %>
 			<% end %>
@@ -21,7 +21,7 @@
 <%= form_for @food, :html => { :id => "new_food" } do |f| %>
 	<%= f.search_field 'name' %>
 	<%= f.hidden_field 'still_tasty_id' %>
-	<%= f.hidden_field 'shelf_life' %>
+	<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
 	<%= f.hidden_field 'purchased', value: false %>
 <% end %>
 
