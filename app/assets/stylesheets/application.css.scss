@@ -13,26 +13,43 @@
  *= require_tree .
  *= require_self
  */
+ @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
- #navforuser {
- 	margin-top: 15px;
- };
-
- // body	{
- // 	background-image: url('/assets/notepad.jpg')
- // };
-
- .wrapper {
- 	width: 85%;
- 	height: 900px;
- 	margin: 50px auto;
- 	padding: 20px;
- 	background: #fff;
- 	border: 1px solid #e5e5e5;
+ .btn-default {
  	box-shadow: 2px 2px 2px #e5e5e5;
+ 	border: 1px solid #e5e5e5;
  	border-radius: 4px;
- 	background-image: url('/assets/notepad.jpg');
+ 	padding: 7px 30px;
+ 	color: #fff;
+ 	background: #02C8A7;
+ 	font-family: 'Lato', sans-serif;
+ 	width: 175px;
  };
+
+ .btn-default:hover {
+ 	background: #02C8A7;
+ 	color: #fff;
+ 	font-size: 15px;
+ };
+
+.btn-primary {
+ 	box-shadow: 2px 2px 2px #e5e5e5;
+ 	border: 1px solid #e5e5e5;
+ 	border-radius: 4px;
+ 	padding: 7px 30px;
+ 	color: #fff;
+ 	background: #02C8A7;
+ 	font-family: 'Lato', sans-serif;
+ 	width: 155px;
+ };
+
+ .btn-primary:hover {
+ 	background: #02C8A7;
+ 	color: #fff;
+ 	font-size: 15px;
+ };
+
+

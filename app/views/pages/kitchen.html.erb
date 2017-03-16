@@ -1,45 +1,103 @@
+<div class="wrapper2">
 
-<h1>This is the Kitchen View Page</h1>
+<h1>The Kitchen</h1>
+
+<% if current_user.kitchen.length > 0 %>
+	<ul class="list-group">
+		<% if current_user.expires_today.length > 0 %>
+			<li class="list-group-item list-group-item-danger row">
+				<h2>Expires Today</h2>
+			</li>
+			<% current_user.expires_today.each do |food| %>
+				<li class="list-group-item row">
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
+				</li>
+			<% end %>
+		<% end %>
+
+		<% if current_user.expires_tomorrow.length > 0 %>
+			<li class="list-group-item list-group-item-warning">
+				<h3>Expires Tomorrow</h3>
+			</li>
+			<% current_user.expires_tomorrow.each do |food| %>
+				<li class="list-group-item row">
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
+				</li>
+			<% end %>
+		<% end %>
+
+		<% if current_user.expires_this_week.length > 0 %>
+			<li class="list-group-item list-group-item-info row">
+				<h3>Expires This Week</h3>
+			</li>
+			<% current_user.expires_this_week.each do |food| %>
+				<li class="list-group-item row">
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
+				</li>
+			<% end %>
+		<% end %>
 
 
-<h1>Expires Today</h1>
+		<% if current_user.expires_later.length > 0 %>
+			<li class="list-group-item list-group-item-success row">
+				<h2>Expires Later</h2>
+			</li>
+			<% current_user.expires_later.each do |food| %>
+				<li class="list-group-item row">
+					<div class="col-xs-1">
+						<%= link_to "To list", move_to_list_path(food.id), :method => :post, data: { confirm: "Are you sure you want to move this item to the list?"}%>
+					</div>
+					<div class="col-xs-8">
+						<%= food.name %>
+					</div>
+					<div class="col-xs-2">
+						Expires in <%= food.expires_from_now %> days
+					</div>
+					<div class="col-xs-1">
+						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+					</div>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+<% else %>
+	<h3>Sorry, your kitchen is empty. Go to the list to add food to your kitchen!</h3>
+<% end %>
 
-<ul class="list-group">
-	<% @foods.each do |food| %>
-	<li class="list-group-item">
-		<%= food.name %>
-		<%= food.shelf_life_days %> |
-		<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %> |
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Move to list
-		</button>
-	</li>
-	
-	<div class="modal fade" id="myModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3>Moving To Kitchen</h3>
-				</div>
-				<div class="modal-body">
-					<p>Are you sure you want to move this item to the Kitchen?</p>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Keep in Kitchen</button>
-					<%= link_to "Move to List", move_to_list_path(food.id), class: "btn btn-default", :method => :post, :remote => true%>
-				</div>
-
-
-			</div>
-		</div>
-	</div>
-	<% end %>
-</ul>
-<h1>Expires later</h1>
-
+<br>
 <%= button_to "Go to List Page",  "/list" , :method => :get, class: "btn btn-default" %>
-
-
-
-
 

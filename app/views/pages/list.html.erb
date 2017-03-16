@@ -1,37 +1,62 @@
-<h1>My List</h1>
 
-<ul class="list-group">
-	<% @foods.each do |food| %>
-		<li class="list-group-item">
-			<%= form_for food, url:move_to_kitchen_path(food.id), method: :post do |f| %>
-				<%= food.name %> |
-	      		<%= link_to food, method: :delete do %>
-	      			<i class='fa fa-trash-o'></i>
-	      		<% end %> |
-	      		<%= f.label :shelf_life %>
-				<%= f.number_field :shelf_life, value: food.shelf_life ? food.shelf_life_days : 7 %>
-				days
-				<%= f.submit "Add to kitchen" %>
-			<% end %>
+<div class="wrapper">
+
+	<h1>My List</h1>
+
+	<!-- new idea -->
+	<%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
+	<ul class="list-group">
+		<li class="list-group-item row active">
+			<div class="col-xs-1">
+				Add	
+			</div>
+			<div class="col-sm-8 col-xs-7">
+				Food
+			</div>
+			<div class="col-xs-2 col-xs-3">
+				Shelf Life
+			</div>
+		</li>
+		<% @foods.each do |food| %>
+		<li class="list-group-item row">
+			<div class="col-xs-1">
+				<%= check_box_tag 'add[]', food.id %>				
+			</div>
+			<div class="col-sm-8 col-xs-7">
+				<%= food.name %>
+			</div>
+			<div class="col-sm-2 col-xs-3">
+				<%= number_field_tag "shelf_life[]", food.shelf_life ? food.shelf_life_days : 7, min: 0, class: "form-control" %>
+			</div>
+			<div class="col-xs-1">
+				<%= link_to food, method: :delete do %>
+				<i class='fa fa-trash-o'></i>
+				<% end %>
+			</div>
 		</li>
 
-	<% end %>
-</ul>
+		<% end %>
+	</ul>
+	<%= submit_tag "To Kitchen >>", class: "btn btn-primary" %>
+	<br><br>
 
-<%= form_for @food, :html => { :id => "new_food" } do |f| %>
-	<%= f.search_field 'name' %>
+	<% end %>
+
+	<!-- search  -->
+	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
+	<%= f.search_field 'name', class: "form-control", placeholder: "Search for food", :autocomplete => :off %>
 	<%= f.hidden_field 'still_tasty_id' %>
 	<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
 	<%= f.hidden_field 'purchased', value: false %>
-<% end %>
+	<% end %>
+	<ul class="list-group" id="suggestions">
+		
+	</ul>
 
-<ul class="list-group" id="suggestions">
-	
-</ul>
+	<div class="results"></div>
+</div>
 
-<div class="results"></div>
 
-<%= button_to "Go to Kitchen",  "/kitchen" , :method => :get, class: "btn btn-default" %>
 
 
 
