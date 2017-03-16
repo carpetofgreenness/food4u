@@ -1,8 +1,8 @@
 <div class="wrapper2">
 
-<h1>The Kitchen</h1>
+	<h1>Kitchen</h1>
 
-<% if current_user.kitchen.length > 0 %>
+	<% if current_user.kitchen.length > 0 %>
 	<ul class="list-group">
 		<% if current_user.expires_today.length > 0 %>
 			<li class="list-group-item list-group-item-danger row">
@@ -109,10 +109,9 @@
 	
 
 <% else %>
+
 	<h3>Sorry, your kitchen is empty. Go to the list to add food to your kitchen!</h3>
-<% end %>
-
-
+	<% end %>
 
 <br>
 <%= button_to "Go to List Page",  "/list" , :method => :get, class: "btn btn-default" %>

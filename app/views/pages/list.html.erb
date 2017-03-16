@@ -3,6 +3,17 @@
 
 	<h1>My List</h1>
 
+	<!-- search  -->
+	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
+	<%= f.search_field 'name', class: "form-control", placeholder: "Search for food", :autocomplete => :off %>
+	<%= f.hidden_field 'still_tasty_id' %>
+	<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
+	<%= f.hidden_field 'purchased', value: false %>
+	<% end %>
+	
+	<ul class="list-group" id="suggestions">
+		
+	</ul>
 	<!-- new idea -->
 	<%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
 	<ul class="list-group">
@@ -45,16 +56,6 @@
 	
 	<% end %>
 
-	<!-- search  -->
-	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
-	<%= f.search_field 'name', class: "form-control", placeholder: "Search for food", :autocomplete => :off %>
-	<%= f.hidden_field 'still_tasty_id' %>
-	<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
-	<%= f.hidden_field 'purchased', value: false %>
-	<% end %>
-	<ul class="list-group" id="suggestions">
-		
-	</ul>
 
 	<div class="results"></div>
 </div>
