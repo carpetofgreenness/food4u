@@ -18,7 +18,7 @@
 					</div>
 					<div class="col-xs-2">
 						Expires in <%= food.expires_from_now %> days
-					</div>
+						</div>
 					<div class="col-xs-1">
 						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
 					</div>
@@ -27,7 +27,7 @@
 		<% end %>
 
 		<% if current_user.expires_tomorrow.length > 0 %>
-			<li class="list-group-item list-group-item-warning">
+			<li class="list-group-item list-group-item-warning row">
 				<h3>Expires Tomorrow</h3>
 			</li>
 			<% current_user.expires_tomorrow.each do |food| %>
