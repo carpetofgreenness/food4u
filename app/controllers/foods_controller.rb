@@ -16,6 +16,14 @@ class FoodsController < ApplicationController
 
 	def destroy
 		@food = Food.find(params[:id])
+    match = Ghost.where("name='#{@food.name}'")[0]
+    if match
+      p "there was a match!"
+      p match.trashed
+      match.update_attribute(:trashed, match.trashed + 1)
+    else
+      current_user.ghosts.create(name: @food.name, still_tasty_id: @food.still_tasty_id, shelf_life: @food.shelf_life, eaten: 0, trashed: 1)
+    end
 		@food.destroy
 
 		redirect_to :back
