@@ -20,7 +20,9 @@
 
 .chango {
 	font-family: 'Abril Fatface', cursive;
-	font-size: 48px;
+	font-size: 60px;
+	color: #02C8A7;
+	text-shadow: -1px 0 black, 0 0.5px black, 0.5px 0 black, 0 -1px black;
 };
 
  .btn-default {
@@ -37,6 +39,22 @@
  		color: #fff;
  		font-size: 15px;
  	}
+ };
+
+ .btn-default2 {
+ 	box-shadow: 2px 2px 2px #e5e5e5;
+ 	border: 1px solid #e5e5e5;
+ 	border-radius: 4px;
+ 	padding: 7px 30px;
+ 	color: #fff;
+ 	background: #02C8A7;
+ 	font-family: 'Lato', sans-serif;
+ 	width: 175px;
+ 	// &:hover {
+ 	// 	background: #02C8A7;
+ 	// 	color: #fff;
+ 	// 	font-size: 15px;
+ 	// }
  };
 
  .btn-primary {
@@ -70,7 +88,6 @@
 
  i {
  	margin-top: -8px;
- 	margin-left: 9px;
  	width: 35px;
  	text-align: center;
  	height: 35px;
@@ -84,6 +101,24 @@
  		background: #02C8A7;
  		color: #fff;
  	}
+ };
+
+ .i2 {
+ 	margin-top: -8px;
+ 	margin-left: 60%;
+ 	width: 35px;
+ 	text-align: center;
+ 	height: 35px;
+ 
+ };
+
+ .i3 {
+ 	margin-top: -8px;
+ 	margin-left: 20px;
+ 	width: 35px;
+ 	text-align: center;
+ 	height: 35px;
+ 
  };
 
  .fa-trash-o:before {
