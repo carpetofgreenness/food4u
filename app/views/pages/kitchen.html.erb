@@ -1,6 +1,6 @@
 <div class="wrapper2">
 
-	<h1>Kitchen</h1>
+	<h1 class="chango">My Kitchen</h1>
 
 	<% if current_user.kitchen.length > 0 %>
 	<ul class="list-group">
@@ -23,7 +23,7 @@
 					</div>
 					<div class="col-xs-1">
 						<a
-						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Delete?', commit: 'Yes' } do %>
 						<i class='fa fa-trash-o'></i><% end %>
 						</a>
 
@@ -34,7 +34,7 @@
 
 		<% if current_user.expires_tomorrow.length > 0 %>
 			<li class="list-group-item list-group-item-warning row">
-				<h3>Expires Tomorrow</h3>
+				<h2>Expires Tomorrow</h2>
 			</li>
 			<% current_user.expires_tomorrow.each do |food| %>
 				<li class="list-group-item row">
@@ -63,7 +63,7 @@
 
 		<% if current_user.expires_this_week.length > 0 %>
 			<li class="list-group-item list-group-item-info row">
-				<h3>Expires This Week</h3>
+				<h2>Expires This Week</h2>
 			</li>
 			<% current_user.expires_this_week.each do |food| %>
 				<li class="list-group-item row">
