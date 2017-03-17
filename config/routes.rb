@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   post "/to_kitchen/:id", to: "foods#to_kitchen", as: "move_to_kitchen"
   post "/to_list/:id", to: "foods#to_list", as: "move_to_list"
   post "/to_kitchen_new", to: "foods#to_kitchen_new", as: "to_kitchen_new"
+
+  get 'graph/index'
+  get 'graph/data', :defaults => { :format => 'json' }
 end
