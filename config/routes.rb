@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/api-find' => "pages#api_find"
   get '/guide-find' => "pages#guide_find"
   
+  get "/foods/:id", to: "food#destroy"
   get "/list", to: "pages#list"
   get "/kitchen", to: "pages#kitchen"
   post "/to_kitchen/:id", to: "foods#to_kitchen", as: "move_to_kitchen"
