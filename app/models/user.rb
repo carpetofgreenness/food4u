@@ -14,7 +14,9 @@ class User < ApplicationRecord
 
 	def kitchen
 		kitchen_unsorted = self.foods.where(purchased: true)
-		kitchen_sorted = kitchen_unsorted.sort_by {|food| food.expiration_date}
+		if kitchen_unsorted.length > 0
+			kitchen_sorted = kitchen_unsorted.sort_by {|food| food.expiration_date}
+		end
 	end
 
 	def expires_today

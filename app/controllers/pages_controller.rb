@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   end
 
   def kitchen
-    @foods = current_user.kitchen
+    @foods = current_user.kitchen if current_user.kitchen
     @food = Food.new
   end
 
