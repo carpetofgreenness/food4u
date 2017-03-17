@@ -11,9 +11,7 @@
 			<% current_user.expires_today.each do |food| %>
 				<li class="list-group-item row">
 					<div class="col-xs-1">
-						<button type="button" class="btn btn-primary2" data-toggle="modal" data-target="#myModal">
-							Move to list
-						</button>
+						
 					</div>
 					<div class="col-xs-8">
 						<%= food.name %>
@@ -29,6 +27,8 @@
 
 					</div>
 				</li>
+				<% @food = food %>
+				<%= render partial: "modal_to_list"%>
 			<% end %>
 		<% end %>
 
