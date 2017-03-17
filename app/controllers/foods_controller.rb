@@ -16,14 +16,14 @@ class FoodsController < ApplicationController
 
 	def destroy
 		@food = Food.find(params[:id])
-    match = Ghost.where("name='#{@food.name}'")[0]
-    if match
-      p "there was a match!"
-      p match.trashed
+    match = Ghost.where("name='#{@food.name}'")
+    if match[0]
+      match = match[0]
       match.update_attribute(:trashed, match.trashed + 1)
     else
-      current_user.ghosts.create(name: @food.name, still_tasty_id: @food.still_tasty_id, shelf_life: @food.shelf_life, eaten: 0, trashed: 1)
+      match = current_user.ghosts.create(name: @food.name, still_tasty_id: @food.still_tasty_id, shelf_life: @food.shelf_life, eaten: 0, trashed: 1)
     end
+    match.graveyards.create(eaten: false)
 		@food.destroy
 
 		redirect_to :back
@@ -63,8 +63,17 @@ class FoodsController < ApplicationController
   		food = Food.find(params[:id])
     	food.update_attributes(purchased: false, purchased_at: Time.now)
 
-    	redirect_to "/kitchen"
-  	end
+      match = Ghost.where("name='#{food.name}'")
+      if match[0]
+        match=match[0]
+        match.update_attribute(:eaten, match.eaten + 1)
+      else
+        match = current_user.ghosts.create(name: food.name, still_tasty_id: food.still_tasty_id, shelf_life: food.shelf_life, eaten: 1, trashed: 0)
+      end
+      match.graveyards.create(eaten: true)
+
+      	redirect_to "/kitchen"
+    	end
 
   	# def update
   	# 	food = Food.find(params[:id])
