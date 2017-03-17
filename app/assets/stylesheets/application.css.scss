@@ -14,9 +14,14 @@
  *= require_self
  */
  @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
-
+ @import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
+
+.chango {
+	font-family: 'Abril Fatface', cursive;
+	font-size: 48px;
+};
 
  .btn-default {
  	box-shadow: 2px 2px 2px #e5e5e5;
@@ -65,7 +70,7 @@
 
  i {
  	margin-top: -8px;
- 	margin-left: 15px;
+ 	margin-left: 9px;
  	width: 35px;
  	text-align: center;
  	height: 35px;
