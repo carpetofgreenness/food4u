@@ -27,12 +27,11 @@
  	background: #02C8A7;
  	font-family: 'Lato', sans-serif;
  	width: 175px;
- };
-
- .btn-default:hover {
- 	background: #02C8A7;
- 	color: #fff;
- 	font-size: 15px;
+ 	&:hover {
+ 		background: #02C8A7;
+ 		color: #fff;
+ 		font-size: 15px;
+ 	}
  };
 
  .btn-primary {
@@ -53,9 +52,20 @@
  	font-size: 15px;
  };
 
+ .btn-primary2 {
+ 	box-shadow: 2px 2px 2px #e5e5e5;
+ 	border: 1px solid #e5e5e5;
+ 	border-radius: 4px;
+ 	padding: 7px 30px;
+ 	color: #fff;
+ 	background: #02C8A7;
+ 	font-family: 'Lato', sans-serif;
+ 	width: 155px;
+ };
+
  i {
+ 	margin-top: -8px;
  	margin-left: 15px;
- 	margin-top: 1px;
  	width: 35px;
  	text-align: center;
  	height: 35px;
@@ -71,9 +81,9 @@
  	}
  };
 
-.fa-trash-o:before {
-	font-size: 16px;
-};
+ .fa-trash-o:before {
+ 	font-size: 16px;
+ };
 
  .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
  	z-index: 2;
@@ -81,3 +91,22 @@
  	background-color: #02C8A7;
  	border-color: #02C8A7;
  };
+
+ .col-sm-8 {
+ 	margin-top: 7px;
+ };
+
+ .col-xs-1 {
+ 	margin-top: 7px;
+ };
+
+ .col-xs-2 {
+ 	margin-top: 11px;
+ };
+
+ .col-xs-8 {
+ 	margin-top: 15px;
+ 	padding-left: 150px;
+ };
+
+
