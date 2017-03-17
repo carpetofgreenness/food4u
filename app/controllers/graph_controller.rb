@@ -6,7 +6,7 @@ class GraphController < ApplicationController
   def data
     respond_to do |format|
       format.json {
-        render :json => Graveyard.make_table
+        render :json => [1,2,3,4,5]
       }
     end
   end
