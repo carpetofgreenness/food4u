@@ -1,10 +1,21 @@
 
 <div class="wrapper">
 
-<h1>My List</h1>
+	<h1 class="chango">My List</h1>
 
-<!-- new idea -->
-<%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
+	<!-- search  -->
+	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
+	<%= f.search_field 'name', class: "form-control", placeholder: "Search for food", :autocomplete => :off %>
+	<%= f.hidden_field 'still_tasty_id' %>
+	<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
+	<%= f.hidden_field 'purchased', value: false %>
+	<% end %>
+	
+	<ul class="list-group" id="suggestions">
+		
+	</ul>
+	<!-- new idea -->
+	<%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
 	<ul class="list-group">
 		<li class="list-group-item row active">
 			<div class="col-xs-1">
@@ -20,7 +31,7 @@
 		<% @foods.each do |food| %>
 			<li class="list-group-item row">
 				<div class="col-xs-1">
-					<%= check_box_tag 'add[]', food.id %>				
+					<%= check_box_tag 'add[]', food.id%>				
 				</div>
 				<div class="col-sm-8 col-xs-7">
 					<%= food.name %>
@@ -29,29 +40,26 @@
 					<%= number_field_tag "shelf_life[]", food.shelf_life ? food.shelf_life_days : 7, min: 0, class: "form-control" %>
 				</div>
 				<div class="col-xs-1">
-		      		<%= link_to food, method: :delete do %>
-		      			<i class='fa fa-trash-o'></i>
-		      		<% end %>
+					<a
+					<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+					<i class='fa fa-trash-o'></i><% end %>
+					</a>
 				</div>
 			</li>
+			<% @food = food %>
+			<%= render partial: "modal_to_kitchen"%>
+	
 		<% end %>
 	</ul>
-	<%= submit_tag "To Kitchen >>", class: "btn btn-primary" %>
+	<br>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
 	<br><br>
-<% end %>
-
-<!-- search  -->
-	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
-		<%= f.search_field 'name', class: "form-control", placeholder: "Search for food", :autocomplete => :off %>
-		<%= f.hidden_field 'still_tasty_id' %>
-		<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
-		<%= f.hidden_field 'purchased', value: false %>
-	<% end %>
-<ul class="list-group" id="suggestions">
 	
-</ul>
+	<% end %>
+
 
 	<div class="results"></div>
+</div>
 
 
 

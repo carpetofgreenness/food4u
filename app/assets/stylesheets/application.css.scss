@@ -14,9 +14,14 @@
  *= require_self
  */
  @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
-
+ @import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
+
+.chango {
+	font-family: 'Abril Fatface', cursive;
+	font-size: 48px;
+};
 
  .btn-default {
  	box-shadow: 2px 2px 2px #e5e5e5;
@@ -27,13 +32,86 @@
  	background: #02C8A7;
  	font-family: 'Lato', sans-serif;
  	width: 175px;
+ 	&:hover {
+ 		background: #02C8A7;
+ 		color: #fff;
+ 		font-size: 15px;
+ 	}
  };
 
- .btn-default:hover {
+ .btn-primary {
+ 	box-shadow: 2px 2px 2px #e5e5e5;
+ 	border: 1px solid #e5e5e5;
+ 	border-radius: 4px;
+ 	padding: 7px 30px;
+ 	color: #fff;
+ 	background: #02C8A7;
+ 	font-family: 'Lato', sans-serif;
+ 	width: 155px;
+ 	float: right;
+ };
+
+ .btn-primary:hover {
  	background: #02C8A7;
  	color: #fff;
  	font-size: 15px;
  };
 
+ .btn-primary2 {
+ 	box-shadow: 2px 2px 2px #e5e5e5;
+ 	border: 1px solid #e5e5e5;
+ 	border-radius: 4px;
+ 	padding: 7px 30px;
+ 	color: #fff;
+ 	background: #02C8A7;
+ 	font-family: 'Lato', sans-serif;
+ 	width: 155px;
+ };
+
+ i {
+ 	margin-top: -8px;
+ 	margin-left: 9px;
+ 	width: 35px;
+ 	text-align: center;
+ 	height: 35px;
+ 	border-radius: 100%;
+ 	padding-top: 9px;
+ 	border: 1px solid #02C8A7;
+ 	color: #02C8A7;
+ 	display: block;
+ 	cursor: pointer;
+ 	&:hover {
+ 		background: #02C8A7;
+ 		color: #fff;
+ 	}
+ };
+
+ .fa-trash-o:before {
+ 	font-size: 16px;
+ };
+
+ .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+ 	z-index: 2;
+ 	color: #fff;
+ 	background-color: #02C8A7;
+ 	border-color: #02C8A7;
+ };
+
+ .col-sm-8 {
+ 	margin-top: 7px;
+ };
+
+ .col-xs-1 {
+ 	margin-top: 7px;
+ };
+
+ .col-xs-2 {
+ 	margin-top: 11px;
+ };
+
+ .col-xs-8 {
+ 	margin-top: 15px;
+ 	padding-left: 150px;
+ };
 
 
