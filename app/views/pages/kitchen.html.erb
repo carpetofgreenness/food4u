@@ -11,9 +11,9 @@
 			<% current_user.expires_today.each do |food| %>
 				<li class="list-group-item row">
 					<div class="col-xs-1">
-						<button type="button" class="btn btn-primary2" data-toggle="modal" data-target="#myModal">
-							Move to list
-						</button>
+						<a class="i2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
+						<i class="fa fa-check"></i>	
+						</a>
 					</div>
 					<div class="col-xs-8">
 						<%= food.name %>
@@ -29,6 +29,8 @@
 
 					</div>
 				</li>
+				<% @food = food %>
+				<%= render partial: "modal_to_list"%>
 			<% end %>
 		<% end %>
 
@@ -39,9 +41,9 @@
 			<% current_user.expires_tomorrow.each do |food| %>
 				<li class="list-group-item row">
 					<div class="col-xs-1">
-						<button type="button" class="btn btn-primary2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
-							Move to list
-						</button>
+						<a class="i2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
+						<i class="fa fa-check"></i>	
+						</a>
 					</div>
 					<div class="col-xs-8">
 						<%= food.name %>
@@ -68,9 +70,9 @@
 			<% current_user.expires_this_week.each do |food| %>
 				<li class="list-group-item row">
 					<div class="col-xs-1">
-						<button type="button" class="btn btn-primary2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
-							Move to list
-						</button>
+						<a class="i2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
+						<i class="fa fa-check"></i>	
+						</a>
 					</div>
 					<div class="col-xs-8">
 						<%= food.name %>
@@ -97,9 +99,9 @@
 			<% current_user.expires_later.each do |food| %>
 				<li class="list-group-item row">
 					<div class="col-xs-1">
-						<button type="c" class="btn btn-primary2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
-							Move to list
-						</button>
+						<a class="i2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
+						<i class="fa fa-check"></i>	
+						</a>
 					</div>
 					<div class="col-xs-8">
 						<%= food.name %>
@@ -109,7 +111,7 @@
 					</div>
 					<div class="col-xs-1">
 						<a
-						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+						<%= link_to "/foods/#{food.id}", method: :delete, data: { confirm: 'Are you sure?', commit: 'Yes' } do %>
 						<i class='fa fa-trash-o'></i><% end %>
 						</a>
 					</div>
