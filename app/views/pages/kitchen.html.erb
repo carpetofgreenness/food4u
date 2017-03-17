@@ -22,7 +22,11 @@
 						Expires in <%= food.expires_from_now %> days
 					</div>
 					<div class="col-xs-1">
-						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+						<a
+						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+						<i class='fa fa-trash-o'></i><% end %>
+						</a>
+
 					</div>
 				</li>
 			<% end %>
@@ -46,7 +50,10 @@
 						Expires in <%= food.expires_from_now %> days
 					</div>
 					<div class="col-xs-1">
-						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+						<a
+						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+						<i class='fa fa-trash-o'></i><% end %>
+						</a>					
 					</div>
 				</li>
 				<% @food = food %>
@@ -72,7 +79,10 @@
 						Expires in <%= food.expires_from_now %> days
 					</div>
 					<div class="col-xs-1">
-						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+						<a
+						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+						<i class='fa fa-trash-o'></i><% end %>
+						</a>					
 					</div>
 				</li>
 				<% @food = food %>
@@ -98,7 +108,10 @@
 						Expires in <%= food.expires_from_now %> days
 					</div>
 					<div class="col-xs-1">
-						<%= link_to food, method: :delete do %><i class='fa fa-trash-o'></i><% end %>					
+						<a
+						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+						<i class='fa fa-trash-o'></i><% end %>
+						</a>
 					</div>
 				</li>
 				<% @food = food %>
