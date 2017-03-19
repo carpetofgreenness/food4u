@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   post "/to_kitchen_new", to: "foods#to_kitchen_new", as: "to_kitchen_new"
 
   get 'graph/index'
-  get 'graph/data', :defaults => { :format => 'json' }
+  get 'graph/data' => "graph#data"
 end

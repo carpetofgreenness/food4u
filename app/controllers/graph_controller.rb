@@ -1,15 +1,12 @@
 class GraphController < ApplicationController
-
   def index
   end
- 
+
   def data
-    respond_to do |format|
-      format.json {
-        render :json => [1,2,3,4,5]
-      }
-    end
+    # result = [ [1,5], [20,20], [40,10], [60,40], [80,5], [100,60]]
+
+    result = Graveyard.make_table
+
+    render json: { results: result }
   end
-
-
 end
