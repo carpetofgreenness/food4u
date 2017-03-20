@@ -10,10 +10,12 @@
 	<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
 	<%= f.hidden_field 'purchased', value: false %>
 	<% end %>
-	
-	<ul class="list-group" id="suggestions">
+	<div>
+		<ul class="list-group" id="suggestions">
+			
+		</ul>
 		
-	</ul>
+	</div>
 	<!-- new idea -->
 	<%= form_tag to_kitchen_new_path, method: :post,  multipart: true do %>
 	<ul class="list-group" id="shopping-list">

@@ -16,7 +16,7 @@ $("document").ready(function(){
 				dataType: "json",
 
 				success: function(data) { //what to do when it is successful. do this every time
-
+					$("#suggestions").show();
 					suggestions = data.results // this gives an array of objects. each object is a search suggestion containing a name and id
 					// console.log(suggestions)
 					html_string = "" // initialize string to be put in the list group on test_api.html.erb
@@ -81,6 +81,7 @@ $("document").ready(function(){
 
 		} else {
 			$("#suggestions").html("")
+			$("#suggestions").hide();
 		}
 
 	});
