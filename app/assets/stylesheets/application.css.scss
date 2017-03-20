@@ -55,6 +55,10 @@
  	font-size: 50px;
  	color: #02C8A7;
  	text-shadow: -1px 0 black, 0 0.5px black, 0.5px 0 black, 0 -1px black;
+ 	&:hover {
+ 		color: #02C8A7;
+ 		text-decoration: none;
+ 	}
  };
 
 
