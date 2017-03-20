@@ -23,7 +23,7 @@ class FoodsController < ApplicationController
     else
       match = current_user.ghosts.create(name: @food.name, still_tasty_id: @food.still_tasty_id, shelf_life: @food.shelf_life, eaten: 0, trashed: 1)
     end
-    match.graveyards.create(eaten: false)
+    match.graveyards.create(eaten: false, user_id: current_user.id)
 		@food.destroy
 
 		redirect_to :back

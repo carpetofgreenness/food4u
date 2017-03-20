@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170317190316) do
 
   create_table "graveyards", force: :cascade do |t|
     t.integer  "ghost_id"
-    t.boolean  "user_id"
+    t.integer  "user_id"
     t.boolean  "eaten"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

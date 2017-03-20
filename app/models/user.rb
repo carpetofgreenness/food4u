@@ -71,4 +71,30 @@ class User < ApplicationRecord
 		self.ghosts.all.sort { |a,b| b.trashed-b.eaten <=> a.trashed-a.eaten }
 	end
 
+	def make_table
+
+		data_table = []
+		total = 0
+		eaten = 0
+
+		(self.graveyards.first.created_at.to_date..self.graveyards.last.created_at.to_date).each do |date|
+			p date
+			on_that_day = self.graveyards.where("created_at >= ? and created_at <= ?", date.beginning_of_day, date.end_of_day)
+			# p on_that_day
+			total += on_that_day.count
+			eaten += self.graveyards.where("created_at >= ? and created_at <= ? and eaten = ?", date.beginning_of_day, date.end_of_day, true).count
+			# p eaten
+			# p total
+			if total > 0
+				percent = eaten * 100 / total
+			else
+				percent = 0
+			end
+			data_table << [ date.to_s, percent ]
+		end
+
+		data_table
+
+	end
+
 end
