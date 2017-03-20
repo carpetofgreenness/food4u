@@ -12,7 +12,7 @@
 			<div class="modal-footer">
 			<%= link_to "Yes, add to List", move_to_list_path(@food), class: "btn btn-default", :method => :post, :remote => true%>
 
-			<%= link_to "No, delete it", @food, class: "btn btn-default", :method => :delete, :remote => true%>
+			<%= link_to "No, delete it", destroy_eaten_path(@food), class: "btn btn-default", :method => :delete, :remote => true%>
 			</div>
 			
 			
