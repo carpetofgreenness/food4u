@@ -1,39 +1,43 @@
-#navforuser {
-	margin-top: 15px;
-	margin-left: 30px;
-	font-family: 'Lato', sans-serif;
-};
+ @import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
 
-.navbar.navbar-default {
-	background: #02C8A7 !important;
-	height: 60px;
-	padding: 3px 0;
-	height: 60px;
-	border-bottom: 1px solid #e5e5e5;
-	box-shadow: 0 4px 4px #e5e5e5;
-	color: #fff;
-	font-family: 'Lato', sans-serif;
-};
+ #navforuser {
+ 	margin-top: 15px;
+ 	margin-left: 30px;
+ 	font-family: 'Lato', sans-serif;
+ };
 
-.backhome {
-	color: #fff;
-	padding: 0;
-	margin: 2px auto;
-	display: inline-block;
-	font-size: 30px;
-	letter-spacing: 0.5px;
-		&:hover {
-			color: #fff;
-			font-size: 31px;
-			text-decoration: none;
-		}
-};
+ .navbar.navbar-default {
+ 	background: #02C8A7 !important;
+ 	height: 60px;
+ 	padding: 3px 0;
+ 	height: 60px;
+ 	border-bottom: 1px solid #e5e5e5;
+ 	box-shadow: 0 4px 4px #e5e5e5;
+ 	color: #fff;
+ 	font-family: 'Lato', sans-serif;
+ };
 
-.navbar-default .navbar-nav > li > a {
-	color: white!important;
-	font-size: 17px;
-};
+ .backhome {
+ 	font-family: 'Abril Fatface', cursive;
+ 	color: #FFFFFF;
+ 	text-shadow: -1px 0 black, 0 0.5px black, 0.5px 0 black, 0 -1px black;
+ 	padding: 0;
+ 	margin: 2px auto;
+ 	display: inline-block;
+ 	font-size: 30px;
+ 	letter-spacing: 0.5px;
+ 	&:hover {
+ 		color: #fff;
+ 		font-size: 31px;
+ 		text-decoration: none;
+ 	}
+ };
 
-.navbar-default .navbar-collapse {
-	background-color: #02C8A7;
-}
+ .navbar-default .navbar-nav > li > a {
+ 	color: white!important;
+ 	font-size: 17px;
+ };
+
+ .navbar-default .navbar-collapse {
+ 	background-color: #02C8A7;
+ }
