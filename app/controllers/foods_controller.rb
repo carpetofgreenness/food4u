@@ -70,10 +70,26 @@ class FoodsController < ApplicationController
       else
         match = current_user.ghosts.create(name: food.name, still_tasty_id: food.still_tasty_id, shelf_life: food.shelf_life, eaten: 1, trashed: 0)
       end
-      match.graveyards.create(eaten: true)
+      match.graveyards.create(eaten: false, user_id: current_user.id)
 
       	redirect_to "/kitchen"
     	end
+
+      def to_list_trashed
+      food = Food.find(params[:id])
+      food.update_attributes(purchased: false, purchased_at: Time.now)
+
+      match = Ghost.where("name='#{food.name}'")
+      if match[0]
+        match=match[0]
+        match.update_attribute(:eaten, match.eaten + 1)
+      else
+        match = current_user.ghosts.create(name: food.name, still_tasty_id: food.still_tasty_id, shelf_life: food.shelf_life, eaten: 1, trashed: 0)
+      end
+      match.graveyards.create(eaten: false, user_id: current_user.id)
+
+        redirect_to "/kitchen"
+      end
 
   	# def update
   	# 	food = Food.find(params[:id])
