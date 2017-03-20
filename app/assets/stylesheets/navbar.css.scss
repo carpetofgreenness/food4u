@@ -5,7 +5,7 @@
 };
 
 .navbar.navbar-default {
-	background: #02C8A7;
+	background: #02C8A7 !important;
 	height: 60px;
 	padding: 3px 0;
 	height: 60px;
@@ -33,3 +33,7 @@
 	color: white!important;
 	font-size: 17px;
 };
+
+.navbar-default .navbar-collapse {
+	background-color: #02C8A7;
+}
