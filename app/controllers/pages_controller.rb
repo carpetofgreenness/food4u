@@ -37,4 +37,8 @@ class PagesController < ApplicationController
     render json: { results: result }
   end
 
+  def data
+    @ghosts = Ghost.all
+  end
+
 end

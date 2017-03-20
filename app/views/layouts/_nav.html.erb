@@ -18,6 +18,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "List", "/list", class: "listmove" %></li>
         <li><%= link_to "Kitchen", "/kitchen", class: "kitchenmove" %></li>
+        <li><%= link_to "Data", "/data", :method => :get %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
       </ul>
