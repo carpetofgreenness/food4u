@@ -26,8 +26,23 @@ class FoodsController < ApplicationController
     match.graveyards.create(eaten: false, user_id: current_user.id)
 		@food.destroy
 
-		redirect_to :back
+		redirect_to "/kitchen"
 	end
+
+  def destroy_eaten
+    @food = Food.find(params[:id])
+    match = Ghost.where("name='#{@food.name}'")
+    if match[0]
+      match = match[0]
+      match.update_attribute(:eaten, match.eaten + 1)
+    else
+      match = current_user.ghosts.create(name: @food.name, still_tasty_id: @food.still_tasty_id, shelf_life: @food.shelf_life, eaten: 1, trashed: 0)
+    end
+    match.graveyards.create(eaten: true, user_id: current_user.id)
+    @food.destroy
+
+    redirect_to "/kitchen"
+  end
 
 	def to_kitchen
   		food = Food.find(params[:id])
@@ -36,7 +51,7 @@ class FoodsController < ApplicationController
   		redirect_to "/kitchen"
   	end
 
-  	def to_kitchen_new
+  def to_kitchen_new
   		p "WHAT PARAMS DO WE GET"
   		p params
 
@@ -57,9 +72,9 @@ class FoodsController < ApplicationController
   		end
 
   		redirect_to "/kitchen"
-  	end
+  end
 
-  	def to_list
+  def to_list
   		food = Food.find(params[:id])
     	food.update_attributes(purchased: false, purchased_at: Time.now)
 
@@ -70,26 +85,26 @@ class FoodsController < ApplicationController
       else
         match = current_user.ghosts.create(name: food.name, still_tasty_id: food.still_tasty_id, shelf_life: food.shelf_life, eaten: 1, trashed: 0)
       end
-      match.graveyards.create(eaten: false, user_id: current_user.id)
+      match.graveyards.create(eaten: true, user_id: current_user.id)
 
-      	redirect_to "/kitchen"
-    	end
+      redirect_to "/kitchen"
+  end
 
-      def to_list_trashed
+  def to_list_trashed
       food = Food.find(params[:id])
       food.update_attributes(purchased: false, purchased_at: Time.now)
 
       match = Ghost.where("name='#{food.name}'")
       if match[0]
         match=match[0]
-        match.update_attribute(:eaten, match.eaten + 1)
+        match.update_attribute(:eaten, match.eaten - 1)
       else
-        match = current_user.ghosts.create(name: food.name, still_tasty_id: food.still_tasty_id, shelf_life: food.shelf_life, eaten: 1, trashed: 0)
+        match = current_user.ghosts.create(name: food.name, still_tasty_id: food.still_tasty_id, shelf_life: food.shelf_life, eaten: 0, trashed: 1)
       end
       match.graveyards.create(eaten: false, user_id: current_user.id)
 
         redirect_to "/kitchen"
-      end
+  end
 
   	# def update
   	# 	food = Food.find(params[:id])

@@ -10,28 +10,10 @@
 				<h2>Expires Today</h2>
 			</li>
 			<% current_user.expires_today.each do |food| %>
-				<li class="list-group-item row">
-					<div class="col-xs-1">
-						<a class="i2" data-toggle="modal" data-target=<%="#myModal#{food.id.to_s}"%>>
-						<i class="fa fa-check"></i>	
-						</a>
-					</div>
-					<div class="col-xs-8">
-						<%= food.name %>
-					</div>
-					<div class="col-xs-2">
-						Expires in <%= food.expires_from_now %> days
-					</div>
-					<div class="col-xs-1">
-						<a
-						<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Delete?', commit: 'Yes' } do %>
-						<i class='fa fa-trash-o'></i><% end %>
-						</a>
-
-					</div>
-				</li>
 				<% @food = food %>
-				<%= render partial: "modal_to_list"%>
+				<%= render partial: "kitchen_list_item" %>
+				<%= render partial: "modal_check"%>
+				<%= render partial: "modal_trash"%>
 			<% end %>
 		<% end %>
 
@@ -42,7 +24,8 @@
 			<% current_user.expires_tomorrow.each do |food| %>
 				<% @food = food %>
 				<%= render partial: "kitchen_list_item" %>
-				<%= render partial: "modal_to_list"%>
+				<%= render partial: "modal_check"%>
+				<%= render partial: "modal_trash"%>
 			<% end %>
 		<% end %>
 
@@ -53,7 +36,8 @@
 			<% current_user.expires_this_week.each do |food| %>
 				<% @food = food %>
 				<%= render partial: "kitchen_list_item" %>
-				<%= render partial: "modal_to_list"%>
+				<%= render partial: "modal_check"%>
+				<%= render partial: "modal_trash"%>
 			<% end %>
 		<% end %>
 
@@ -64,7 +48,8 @@
 			<% current_user.expires_later.each do |food| %>
 				<% @food = food %>
 				<%= render partial: "kitchen_list_item" %>
-				<%= render partial: "modal_to_list"%>
+				<%= render partial: "modal_check"%>
+				<%= render partial: "modal_trash"%>
 			<% end %>
 		<% end %>
 	</ul>
