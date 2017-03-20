@@ -41,7 +41,7 @@
 				</div>
 				<div class="col-xs-1">
 					<a
-					<%= link_to "/foods/#{food.id}", method: :delete, data: {confirm: 'Are you sure?', commit: 'Yes' } do %>
+					<%= link_to "/foods/#{food.id}", method: :delete do %>
 					<i class='fa fa-trash-o'></i><% end %>
 					</a>
 				</div>
@@ -52,7 +52,7 @@
 		<% end %>
 	</ul>
 	<br>
-	<button type="button" id="postme" value="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">To Kitchen</button>
+	<%= submit_tag "To Kitchen >>", class: "btn btn-primary" %>
 	<br><br>
 	
 	<% end %>

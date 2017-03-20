@@ -3,16 +3,16 @@
 		<div class="modal-content">
 
 			<div class="modal-header">
-				<p>You ate this food!</p>
+				<p><strong><span class="fa fa-smile-o"></span> You Ate This Food! <span class="fa fa-smile-o"></span></strong></p>
 			</div>
 			<div class="modal-body">
-				<p><strong>Would you like to add this to your shopping List?</strong></p>
+				<p>Would you like to add this to your shopping List?</p>
 			</div>
 			
 			<div class="modal-footer">
-			<%= link_to "No, I don't need more", @food, class: "btn btn-default", :method => :delete, :remote => true%>
-			
-			<%= link_to "Yes, I want s'mores", move_to_list_path(@food), class: "btn btn-default", :method => :post, :remote => true%>
+			<%= link_to "Yes, add to List", move_to_list_path(@food), class: "btn btn-default", :method => :post, :remote => true%>
+
+			<%= link_to "No, delete it", @food, class: "btn btn-default", :method => :delete, :remote => true%>
 			</div>
 			
 			
