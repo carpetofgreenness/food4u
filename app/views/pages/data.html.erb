@@ -1,19 +1,25 @@
-<h1>My Data</h1>
-<h2>Percent of food eaten (not trashed!) over time</h2>
-<p>To save money and other resources, we strive to avoid food waste by eating as much of what we buy as possible. How is your food waste trend?</p>
+<div>
+
+<h1 class="chango">My Data</h1>
+
+	<h2>Percent of food eaten (not trashed!) over time</h2>
+		<p>To save money and other resources, we strive to avoid food waste by eating as much of what we buy as possible. How is your food waste trend?</p>
+
 <div id="graph"></div>
+
 <div class="row">
 	<div class="col-md-6">
 		<h2>Favorite Foods</h2>
-		<p>These are the main foods you ate more than you threw away.</p>
-		<ul class="list group">
-			<% current_user.favorites[0..4].each do |ghost| %>
-				<% if ghost.eaten > ghost.trashed %>
-					<li class="list-group-item"><strong><%=ghost.name%></strong> was eaten <%=ghost.eaten%> times and thrown out <%=ghost.trashed%> times.</li>
-				<% end %>
-			<% end %>	
-		</ul>
+			<p>These are the main foods you ate more than you threw away.</p>
+				<ul class="list group">
+					<% current_user.favorites[0..4].each do |ghost| %>
+						<% if ghost.eaten > ghost.trashed %>
+						<li class="list-group-item"><strong><%=ghost.name%></strong> was eaten <%=ghost.eaten%> times and thrown out <%=ghost.trashed%> times.</li>
+						<% end %>
+					<% end %>	
+				</ul>
 	</div>
+	
 	<div class="col-md-6">
 		<h2>Least Favorite Foods</h2>
 		<p>These are the main foods you threw more than you ate. Consider buying less of them</p>
@@ -27,3 +33,6 @@
 		
 	</div>
 </div>
+
+</div> <!-- wrapper  -->
+
