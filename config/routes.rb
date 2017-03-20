@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get '/data' => "pages#data"
   
+  get "/foods/:id", to: "food#destroy"
   get "/list", to: "pages#list"
   get "/kitchen", to: "pages#kitchen"
   post "/to_kitchen/:id", to: "foods#to_kitchen", as: "move_to_kitchen"

@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require d3
 //= require bootstrap-sprockets
+//= require data-confirm-modal
 //= require_tree .
 
 $("document").ready(function(){
