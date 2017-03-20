@@ -1,0 +1,21 @@
+<div class="modal fade" id=<%="trash#{@food.id}"%>>
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<p>You threw out this food.</p>
+			</div>
+			<div class="modal-body">
+				<p><strong>Would you like to add this to your shopping List?</strong></p>
+			</div>
+			
+			<div class="modal-footer">
+			<%= link_to "No, I don't need more", @food, class: "btn btn-default", :method => :delete, :remote => true%>
+			
+			<%= link_to "Yes, I want s'mores", move_to_list_trashed_path(@food), class: "btn btn-default", :method => :post, :remote => true%>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>

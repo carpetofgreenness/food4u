@@ -1,0 +1,2 @@
+class GhostsController < ApplicationController
+end

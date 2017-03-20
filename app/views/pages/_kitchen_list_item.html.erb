@@ -1,0 +1,20 @@
+<li class="list-group-item row">
+	<div class="col-xs-1">
+		<a class="i2" data-toggle="modal" data-target=<%="#check#{@food.id.to_s}"%>>
+		<i class="fa fa-check"></i>	
+		</a>
+	</div>
+	<div class="col-xs-8">
+		<%= @food.name %>
+	</div>
+	<div class="col-xs-2">
+		Expires in <%= @food.expires_from_now %> days
+	</div>
+	<div class="col-xs-1">
+		<a
+		<a class="i2" data-toggle="modal" data-target=<%="#trash#{@food.id.to_s}"%>>
+		<i class="fa fa-trash-o"></i>	
+		</a>
+		</a>					
+	</div>
+</li>
