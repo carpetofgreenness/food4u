@@ -63,4 +63,12 @@ class User < ApplicationRecord
 		today
 	end	
 
+	def favorites
+		self.ghosts.all.sort { |a,b| b.eaten-b.trashed <=> a.eaten-a.trashed }
+	end
+
+	def least_favorites
+		self.ghosts.all.sort { |a,b| b.trashed-b.eaten <=> a.trashed-a.eaten }
+	end
+
 end
