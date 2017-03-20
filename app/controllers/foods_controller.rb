@@ -26,7 +26,7 @@ class FoodsController < ApplicationController
     match.graveyards.create(eaten: false, user_id: current_user.id)
 		@food.destroy
 
-		redirect_to "/kitchen"
+		redirect_to :back
 	end
 
   def destroy_eaten
