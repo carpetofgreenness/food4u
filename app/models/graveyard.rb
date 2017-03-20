@@ -1,5 +1,6 @@
 class Graveyard < ApplicationRecord
 	belongs_to :ghost
+	belongs_to :user
 
 	def self.make_table
 
@@ -25,5 +26,9 @@ class Graveyard < ApplicationRecord
 
 		data_table
 
+	end
+
+	def self.favorites
+		
 	end
 end

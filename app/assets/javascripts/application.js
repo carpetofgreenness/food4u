@@ -37,11 +37,11 @@ $("document").ready(function(){
 
 	// set the dimensions and margins of the graph
 	// uses actual width and height of screen
-	var margin = {top: 20, right: 20, bottom: 30, left: 50};
+	var margin = {top: 20, right: 80, bottom: 70, left: 100};
 		// if the screen is large, make it half the screen
 		// otherwise make it the whole screen
 		if ($(window).width() > 580) {
-	    	var width = $( window ).width()/2 - margin.left - margin.right;
+	    	var width = $( window ).width()*3/4 - margin.left - margin.right;
 	    	console.log($(window).width())
 		}
 		else {
@@ -64,7 +64,7 @@ $("document").ready(function(){
 	// append the svg obgect to the body of the page
 	// appends a 'group' element to 'svg'
 	// moves the 'group' element to the top left margin
-	var svg = d3.select("body").append("svg")
+	var svg = d3.select("#graph").append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  	.append("g")
@@ -89,12 +89,37 @@ $("document").ready(function(){
 
 	  // Add the X Axis
 	  svg.append("g")
-	      .attr("transform", "translate(0," + height + ")")
-	      .call(d3.axisBottom(x));
+		.attr("transform", "translate(0," + height + ")")
+		.call(d3.axisBottom(x)
+	      	.ticks(d3.timeDay))
+	    .selectAll("text")	
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
+
+      // text label for the x axis
+	  svg.append("text")             
+	      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 40) + ")")
+	      .style("text-anchor", "middle")
+	      .text("Date");
+	
+
 
 	  // Add the Y Axis
 	  svg.append("g")
 	      .call(d3.axisLeft(y));
+
+	  // Y axis label
+	  svg.append("text")
+	      .attr("transform", "rotate(-90)")
+	      .attr("y", 0 - margin.left/2)
+	      .attr("x",0 - (height / 2))
+	      .attr("dy", "1em")
+	      .style("text-anchor", "middle")
+	      .text("Total percent eaten"); 
 
 
 }
