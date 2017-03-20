@@ -55,5 +55,3 @@ user5.food.create(name: search5["name"], id: search5_id, shelf_life: search5["me
 puts "Sucess Database Seeds Loaded"
 
 =end 
-
-
