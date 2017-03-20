@@ -20,37 +20,38 @@
  @import 'bootstrap';
 
 
-.modal-header {
-	text-align: center;
-}
+ .modal-header {
+ 	text-align: center;
+ }
 
-.modal-body {
-	text-align: center;
-}
+ .modal-body {
+ 	text-align: center;
+ }
 
-.modal-footer {
-	text-align: center;
-}
+ .modal-footer {
+ 	text-align: center;
+ }
 
 
-.fa-smile-o {
-	color: #02C8A7;
-	font-size: 30px;
-};
+ .fa-smile-o {
+ 	color: #02C8A7;
+ 	font-size: 30px;
+ };
 
-.fa-frown-o {
-	color: #02C8A7;
-	font-size: 30px;
-};
+ .fa-frown-o {
+ 	color: #02C8A7;
+ 	font-size: 30px;
+ };
 
-.chango {
-	font-family: 'Abril Fatface', cursive;
-	font-size: 60px;
-	color: #02C8A7;
-	text-shadow: -1px 0 black, 0 0.5px black, 0.5px 0 black, 0 -1px black;
-};
+ .chango {
+ 	font-family: 'Abril Fatface', cursive;
+ 	font-size: 60px;
+ 	color: #02C8A7;
+ 	text-shadow: -1px 0 black, 0 0.5px black, 0.5px 0 black, 0 -1px black;
+ };
 
-.btn-default {
+
+ .btn-default {
  	box-shadow: 2px 2px 2px #e5e5e5;
  	border: 1px solid #e5e5e5;
  	border-radius: 4px;
@@ -66,8 +67,8 @@
  	}
  };
 
-.btn.cancel.btn-default {
-	box-shadow: 2px 2px 2px #e5e5e5;
+ .btn.cancel.btn-default {
+ 	box-shadow: 2px 2px 2px #e5e5e5;
  	border: 1px solid #e5e5e5;
  	border-radius: 4px;
  	padding: 7px 30px;
@@ -128,12 +129,11 @@
  };
 
  i {
- 	margin-top: -8px;
  	width: 35px;
  	text-align: center;
  	height: 35px;
  	border-radius: 100%;
- 	padding-top: 9px;
+ 	padding-top: 10px;
  	border: 1px solid #02C8A7;
  	color: #02C8A7;
  	display: block;
@@ -144,25 +144,16 @@
  	}
  };
 
- .i2 {
- 	margin-top: -8px;
- 	margin-left: 60%;
- 	width: 35px;
- 	text-align: center;
- 	height: 35px;
- 
+ .fa-check {
+ 	padding-top: 10px;
  };
 
- .i3 {
- 	margin-top: -8px;
- 	margin-left: 20px;
- 	width: 35px;
- 	text-align: center;
- 	height: 35px;
- 
- };
+ .fa.fa-check {
+ 	margin-left: 12px;
+ }
 
- .fa-trash-o:before {
+ .fa-trash-o {
+ 	padding-top: 9px;
  	font-size: 16px;
  };
 
@@ -187,6 +178,6 @@
 
  .col-xs-8 {
  	margin-top: 15px;
- 	padding-left: 150px;
+ 	padding-left: 35px;
  };
 
