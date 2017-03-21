@@ -17,9 +17,9 @@ At any time, the user can also view a handy data page to review their food waste
 
 ### How we wrote it
 We used the Rails framework to build this app, with the help of these additional Gems:
-*devise
-*bootstrap-sass
-*data confirm modal
+* devise
+* bootstrap-sass
+* data confirm modal
 
 The data about food shelf-life comes from [Shelf Life API](https://github.com/jcomo/ShelfLife), and the graph was programmed using the JavaScript library [D3.js](https://d3js.org/).
 
