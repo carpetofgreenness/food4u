@@ -30,3 +30,9 @@ food4u was written in `Ruby 2.3.1` on `Rails 5.0.2`. If you clone or fork this p
 * Run `bundle update` and then `bundle`
 * Run `rake db:migrate`
 * Run `rails -s` and the navigate your browser to (http://localhost:3000/)
+
+## Contributers
+* Hannah Weinstein
+* Tyler Gunter
+* David Quinn
+* An Ngo
