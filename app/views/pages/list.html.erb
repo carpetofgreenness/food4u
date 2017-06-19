@@ -2,10 +2,11 @@
 <div class="wrapper">
 
 	<h1 class="chango">My List</h1>
+	<p>Type food name and hit 'enter' to add food to your list.</p>
 
 	<!-- search  -->
 	<%= form_for @food, :html => { :id => "new_food", :class => "form-group"} do |f| %>
-		<%= f.search_field 'name', class: "form-control", placeholder: "Search for food", :autocomplete => :off %>
+		<%= f.search_field 'name', class: "form-control", placeholder: "Type food name", :autocomplete => :off %>
 		<%= f.hidden_field 'still_tasty_id' %>
 		<%= f.hidden_field 'shelf_life', id: 'new_food_shelf_life' %>
 		<%= f.hidden_field 'purchased', value: false %>
@@ -52,6 +53,9 @@
 			<%= render partial: "modal_to_kitchen"%>
 	
 		<% end %>
+	<br>
+	<p>Note that this was once hooked up with the now defunct "Shelf Life API" to estimate shelf life. Hopefully we'll find a good alternative soon!</p>
+
 	</ul>
 	<br>
 	<%= submit_tag "To Kitchen >>", class: "btn btn-primary" %>
